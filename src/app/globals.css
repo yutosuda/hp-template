@@ -6,7 +6,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-noto-sans-jp);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -41,6 +41,30 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Typography Variables */
+  --font-size-base: 1rem;
+  --font-size-h1: 2.25rem;
+  --font-size-h2: 1.75rem;
+  --font-size-h3: 1.375rem;
+  --font-size-h4: 1.125rem;
+  --font-size-h5: 1rem;
+  --font-size-h6: 0.875rem;
+  --font-size-caption: 0.8125rem;
+  
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-body: 1.7;
+  --line-height-heading-large: 1.3;
+  --line-height-heading-small: 1.4;
+  --line-height-caption: 1.5;
+  
+  --letter-spacing-body: 0.03em;
+  --letter-spacing-heading: 0.01em;
+  --letter-spacing-caption: 0.05em;
 }
 
 :root {
@@ -116,7 +140,158 @@
   * {
     @apply border-border outline-ring/50;
   }
+  
+  html {
+    font-size: 16px;
+  }
+  
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-noto-sans-jp), '游ゴシック体', 'Yu Gothic', 'メイリオ', 'Meiryo', 'ヒラギノ角ゴシック', 'Hiragino Kaku Gothic ProN', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-body);
+    color: #222;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  
+  /* Headings */
+  h1 {
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-heading-large);
+    letter-spacing: var(--letter-spacing-heading);
+    margin: 1.5em 0 0.7em 0;
+    color: #111;
+  }
+  
+  h2 {
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-heading-large);
+    letter-spacing: var(--letter-spacing-heading);
+    margin: 1.5em 0 0.7em 0;
+    color: #111;
+  }
+  
+  h3 {
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-heading-large);
+    letter-spacing: var(--letter-spacing-heading);
+    margin: 1.2em 0 0.7em 0;
+    color: #111;
+  }
+  
+  h4 {
+    font-size: var(--font-size-h4);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-heading-small);
+    letter-spacing: var(--letter-spacing-heading);
+    margin: 1.2em 0 0.7em 0;
+    color: #111;
+  }
+  
+  h5 {
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-heading-small);
+    letter-spacing: var(--letter-spacing-heading);
+    margin: 1em 0 0.7em 0;
+    color: #111;
+  }
+  
+  h6 {
+    font-size: var(--font-size-h6);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-heading-small);
+    letter-spacing: var(--letter-spacing-heading);
+    margin: 1em 0 0.7em 0;
+    color: #111;
+  }
+  
+  /* Body text */
+  p, li {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-body);
+    margin-bottom: 1em;
+    max-width: 700px;
+  }
+  
+  /* Caption and small text */
+  small, .caption {
+    font-size: var(--font-size-caption);
+    line-height: var(--line-height-caption);
+    letter-spacing: var(--letter-spacing-caption);
+    color: #888;
+  }
+  
+  /* Links */
+  a {
+    color: #1976d2;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+  }
+  
+  a:hover {
+    color: #1565c0;
+  }
+  
+  /* Strong text */
+  strong, b {
+    font-weight: var(--font-weight-bold);
+  }
+  
+  /* Lists */
+  ul, ol {
+    margin-bottom: 1em;
+  }
+  
+  li {
+    margin-bottom: 0.5em;
+  }
+  
+  /* Responsive typography */
+  @media (max-width: 600px) {
+    html {
+      font-size: 15px;
+    }
+    
+    h1 {
+      font-size: 1.7rem;
+    }
+    
+    h2 {
+      font-size: 1.3rem;
+    }
+    
+    h3 {
+      font-size: 1.1rem;
+    }
+    
+    h4 {
+      font-size: 1rem;
+    }
+    
+    p, li {
+      max-width: 100%;
+    }
+  }
+  
+  /* Clamp-based responsive typography for modern browsers */
+  @supports (font-size: clamp(1rem, 5vw, 2rem)) {
+    h1 {
+      font-size: clamp(1.7rem, 5vw, 2.25rem);
+    }
+    
+    h2 {
+      font-size: clamp(1.3rem, 4vw, 1.75rem);
+    }
+    
+    h3 {
+      font-size: clamp(1.1rem, 3vw, 1.375rem);
+    }
   }
 }
