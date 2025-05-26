@@ -2,12 +2,6 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from "@/components/ui/navigation-menu"
 
 export function Header() {
   return (
@@ -19,45 +13,40 @@ export function Header() {
           </Link>
         </div>
         
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <Link href="/" legacyBehavior passHref>
-                <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                  ホーム
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/about" legacyBehavior passHref>
-                <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                  会社情報
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/services" legacyBehavior passHref>
-                <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                  事業内容
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/portfolio" legacyBehavior passHref>
-                <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                  実績・事例
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/downloads" legacyBehavior passHref>
-                <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                  資料ダウンロード
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+        <nav className="flex items-center h-16">
+          <div className="flex items-center h-16 space-x-0">
+            <Link 
+              href="/" 
+              className="navigation-link flex items-center justify-center h-16 px-4 text-sm font-medium transition-colors hover:text-primary"
+            >
+              ホーム
+            </Link>
+            <Link 
+              href="/about" 
+              className="navigation-link flex items-center justify-center h-16 px-4 text-sm font-medium transition-colors hover:text-primary"
+            >
+              会社情報
+            </Link>
+            <Link 
+              href="/services" 
+              className="navigation-link flex items-center justify-center h-16 px-4 text-sm font-medium transition-colors hover:text-primary"
+            >
+              事業内容
+            </Link>
+            <Link 
+              href="/portfolio" 
+              className="navigation-link flex items-center justify-center h-16 px-4 text-sm font-medium transition-colors hover:text-primary"
+            >
+              実績・事例
+            </Link>
+            <Link 
+              href="/downloads" 
+              className="navigation-link flex items-center justify-center h-16 px-4 text-sm font-medium transition-colors hover:text-primary"
+            >
+              資料ダウンロード
+            </Link>
+          </div>
+        </nav>
 
         <div className="flex items-center space-x-4">
           <Link href="/contact">

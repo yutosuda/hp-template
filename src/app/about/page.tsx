@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-4 py-16">
+            <div className="container py-16">
       {/* ページヘッダー */}
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">会社情報</h1>

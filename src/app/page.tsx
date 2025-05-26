@@ -7,7 +7,7 @@ export default function Home() {
     <div className="flex flex-col">
       {/* ヒーローセクション */}
       <section className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20 md:py-32">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               お客様のビジネスを
@@ -35,7 +35,7 @@ export default function Home() {
 
       {/* 事業概要セクション */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">事業概要</h2>
             <p className="text-lg text-muted-foreground">
@@ -48,7 +48,7 @@ export default function Home() {
 
       {/* 強み・選ばれる理由セクション */}
       <section className="py-16 md:py-24 bg-muted/50">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">選ばれる理由</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -95,7 +95,7 @@ export default function Home() {
 
       {/* 主要サービス紹介セクション */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">主要サービス</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -166,7 +166,7 @@ export default function Home() {
 
       {/* 実績・お客様の声セクション */}
       <section className="py-16 md:py-24 bg-muted/50">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">お客様の声</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -210,7 +210,7 @@ export default function Home() {
 
       {/* CTAセクション */}
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             お気軽にお問い合わせください
           </h2>

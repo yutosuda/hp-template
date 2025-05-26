@@ -67,6 +67,32 @@
   --letter-spacing-caption: 0.05em;
 }
 
+/* Container configuration for Tailwind CSS v4 */
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  
+  @variant sm {
+    padding-inline: 1.5rem;
+  }
+  
+  @variant md {
+    padding-inline: 2rem;
+  }
+  
+  @variant lg {
+    padding-inline: 2.5rem;
+  }
+  
+  @variant xl {
+    padding-inline: 3rem;
+  }
+  
+  @variant 2xl {
+    padding-inline: 3.5rem;
+  }
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -293,5 +319,60 @@
     h3 {
       font-size: clamp(1.1rem, 3vw, 1.375rem);
     }
+  }
+  
+  /* Navigation specific styles - override default link styles */
+  .navigation-link {
+    color: hsl(var(--foreground)) !important;
+    text-decoration: none !important;
+  }
+  
+  .navigation-link:hover {
+    color: hsl(var(--primary)) !important;
+    text-decoration: none !important;
+  }
+  
+  .navigation-link:focus {
+    color: hsl(var(--primary)) !important;
+    text-decoration: none !important;
+  }
+  
+  /* Force proper alignment for navigation menu components */
+  [data-radix-navigation-menu-viewport] {
+    display: flex !important;
+    align-items: center !important;
+    height: 4rem !important;
+  }
+  
+  [data-radix-navigation-menu-list] {
+    display: flex !important;
+    align-items: center !important;
+    height: 4rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  [data-radix-navigation-menu-item] {
+    display: flex !important;
+    align-items: center !important;
+    height: 4rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  [data-radix-navigation-menu-link] {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 4rem !important;
+    margin: 0 !important;
+  }
+  
+  /* Footer copyright specific styles - override max-width limitation */
+  .footer-copyright {
+    max-width: none !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 !important;
   }
 }
