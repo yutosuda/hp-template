@@ -375,4 +375,75 @@
     text-align: center !important;
     margin: 0 !important;
   }
+  
+  /* Hero section text - override max-width limitation */
+  .hero-text {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Enhanced hero section styling */
+  .hero-section {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+  
+  /* Responsive spacing for hero elements */
+  @media (max-width: 640px) {
+    .hero-content h1 {
+      font-size: 2.25rem !important;
+      line-height: 1.2 !important;
+      margin-bottom: 1.25rem !important;
+    }
+    
+    .hero-content p {
+      font-size: 1.125rem !important;
+      line-height: 1.6 !important;
+      margin-bottom: 1.75rem !important;
+      padding: 0 1rem !important;
+    }
+    
+    .hero-content .button-container {
+      gap: 1rem !important;
+      padding-top: 0.75rem !important;
+    }
+  }
+  
+  @media (min-width: 641px) and (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 3rem !important;
+      line-height: 1.1 !important;
+      margin-bottom: 1.75rem !important;
+    }
+    
+    .hero-content p {
+      font-size: 1.25rem !important;
+      line-height: 1.5 !important;
+      margin-bottom: 2.25rem !important;
+    }
+  }
+  
+  /* Improve outline button visibility for download buttons */
+  .download-button {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    border-color: currentColor !important;
+    color: inherit !important;
+    backdrop-filter: blur(4px) !important;
+  }
+  
+  .download-button:hover {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    color: inherit !important;
+  }
 }
