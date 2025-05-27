@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
@@ -28,7 +28,11 @@ export const metadata: Metadata = {
   description: "お客様のビジネスを成功に導くパートナーとして、最高品質のサービスを提供いたします。",
   keywords: "会社名, サービス, 事業内容, お問い合わせ",
   authors: [{ name: "Company Name" }],
-  viewport: "width=device-width, initial-scale=1",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
