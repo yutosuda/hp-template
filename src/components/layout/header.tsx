@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Search, Menu } from "lucide-react"
 import { useState } from "react"
@@ -13,11 +12,7 @@ export function Header() {
       <div className="container flex h-[90px] items-center justify-between">
         {/* Logo */}
         <div className="flex items-center pl-5">
-          <Link href="/" className="flex items-center">
-            <div className="bg-black text-white px-3 py-1 rounded text-lg font-semibold">
-              cron
-            </div>
-          </Link>
+          {/* ロゴ削除済み */}
         </div>
         
 

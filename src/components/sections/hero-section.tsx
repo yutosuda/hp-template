@@ -1,6 +1,46 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
+// Hero section専用のシンプルなカードコンポーネント
+interface HeroCardProps {
+  category: string;
+  number: string;
+  date: string;
+  title: string;
+}
+
+function HeroCard({ category, number, date, title }: HeroCardProps) {
+  return (
+    <div className="flex flex-col">
+      {/* タグ（上部に配置） */}
+      <div className="self-start">
+        <div className="bg-black text-white rounded-t-[12px] flex items-center gap-[5px] py-[8px] px-[12px] inline-flex">
+          <div className="w-[8px] h-[4px] bg-white rounded"></div>
+          <span className="text-[12px] font-medium">{category}</span>
+        </div>
+      </div>
+      
+      {/* タイトル（下部に配置、タグと統合） */}
+      <div className="bg-white rounded-b-[12px] rounded-tr-[12px] shadow-lg border-2 border-black p-[30px] w-[366px] h-[193px]">
+        <div className="w-[306px] h-[133px] flex flex-col justify-center">
+          {/* 数字 - 54px */}
+          <div className="text-[54px] font-bold text-gray-900 leading-none mb-1">
+            {number}
+          </div>
+          {/* 日付 - 16px */}
+          <div className="text-[16px] text-gray-600">
+            {date}
+          </div>
+          {/* タイトル - 24px */}
+          <h3 className="text-[24px] font-bold text-gray-900 leading-tight m-0">
+            {title}
+          </h3>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function HeroSection() {
   return (
     <section className="relative h-[600px] bg-gradient-to-br from-orange-200 via-yellow-100 to-orange-300 overflow-visible -mt-[90px] pt-[90px]">
@@ -24,39 +64,28 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* 右上: 情報カード - 画像に重なるように配置 */}
-          <div className="absolute top-4 lg:top-8 right-4 lg:-right-8 w-80 max-w-sm z-10 transform translate-y-2">
-            <div className="bg-white rounded-2xl p-6 shadow-lg relative">
-              {/* デザインタグ */}
-              <div className="absolute -top-3 left-6 bg-black text-white px-3 py-1 rounded-full text-sm font-medium">
-                デザイン
-              </div>
-              
-              <div className="pt-4">
-                <div className="text-4xl font-bold text-gray-900 mb-1">08</div>
-                <div className="text-sm text-gray-600 mb-4">2024.02</div>
-                <h2 className="text-xl font-bold text-gray-900 leading-tight">
-                  インテリア選びの基準
-                </h2>
-              </div>
-            </div>
+          {/* 右上: Hero専用カードコンポーネント */}
+          <div className="absolute top-4 lg:top-8 right-4 lg:-right-8 z-10 transform translate-y-2">
+            <HeroCard 
+              category="デザイン"
+              number="31"
+              date="2023.10"
+              title="自然と未来を大切にする"
+            />
           </div>
 
           {/* 右下: アクションボタン */}
           <div className="absolute bottom-4 lg:bottom-8 right-4 lg:-right-8 z-10 transform translate-y-12 lg:translate-y-16">
             <Button 
               variant="default" 
-              className="bg-black text-white hover:bg-gray-800 rounded-full text-base py-[15px] !px-[25px] h-auto font-medium flex items-center gap-2 shadow-lg"
+              className="bg-black text-white hover:bg-gray-800 rounded-full text-base py-[15px] !px-[25px] h-auto font-medium flex items-center gap-2 shadow-lg group"
             >
               記事を見る
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1" />
             </Button>
           </div>
         </div>
       </div>
-
-      {/* 装飾的な要素 */}
-      <div className="absolute bottom-8 right-8 w-4 h-4 bg-black rounded-full opacity-60"></div>
     </section>
   );
 } 

@@ -4,8 +4,31 @@ export interface Article {
   title: string;
   category: string;
   date: string;
-  number: string;
-  backgroundClass: string;
+  backgroundGradient: string;
+  tagStyle: 'rounded-t-[12px]' | 'rounded-t-full';
+  imageElements?: {
+    element1: {
+      position: string;
+      size: string;
+      color: string;
+      opacity: string;
+      transform?: string;
+    };
+    element2: {
+      position: string;
+      size: string;
+      color: string;
+      opacity: string;
+      transform?: string;
+    };
+    element3?: {
+      position: string;
+      size: string;
+      color: string;
+      opacity: string;
+      transform?: string;
+    };
+  };
 }
 
 export interface PickupItem {
@@ -51,4 +74,33 @@ export interface CategoryItem {
     title: string;
     date: string;
   }[];
+}
+
+// ランキング記事の型定義
+export interface RankingArticle {
+  id: string;
+  title: string;
+  date: string;
+  thumbnailGradient: string;
+  imageElements: {
+    element1: {
+      position: string;
+      size: string;
+      color: string;
+      opacity: string;
+    };
+    element2: {
+      position: string;
+      size: string;
+      color: string;
+      opacity: string;
+    };
+  };
+}
+
+// タグの型定義
+export interface Tag {
+  name: string;
+  writingMode?: 'vertical-rl' | 'horizontal-tb';
+  href?: string;
 } 

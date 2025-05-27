@@ -146,15 +146,17 @@ export function TopicsAndCategorySection() {
               {categoryItems.map((category) => (
                 <div key={category.id} className="border-t-2 border-black pt-4 space-y-4">
                   {/* カテゴリタイトル */}
-                  <div className="flex items-center gap-2">
-                    <div className={`w-4 h-[6px] rounded border-2 border-black ${category.color.replace('text-', 'bg-')}`}></div>
-                    <h3 className="text-base font-bold text-black m-0">
-                      {category.name}
-                    </h3>
+                  <div className="p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-300 cursor-pointer transition-all duration-200">
+                    <div className="flex items-center gap-2">
+                      <div className={`w-4 h-[6px] rounded border-2 border-black ${category.color.replace('text-', 'bg-')}`}></div>
+                      <h3 className="text-base font-bold text-black m-0">
+                        {category.name}
+                      </h3>
+                    </div>
                   </div>
                   
                   {/* 記事リスト */}
-                  <div className="space-y-3">
+                  <div>
                     {category.articles.map((article, index) => (
                       <div key={index} className="p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-300 cursor-pointer transition-all duration-200">
                         <h4 className="text-sm text-gray-900 leading-relaxed m-0">
