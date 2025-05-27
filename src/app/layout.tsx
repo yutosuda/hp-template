@@ -42,7 +42,7 @@ export default function RootLayout({
         className={`${notoSansJP.variable} ${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <Header />
-        <main className="flex-1 pt-[120px]">
+        <main className="flex-1">
           {children}
         </main>
         <Footer />

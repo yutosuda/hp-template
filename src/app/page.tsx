@@ -1,34 +1,428 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="flex flex-col">
-      {/* ヒーローセクション */}
-      <section className="hero-section relative bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20 md:py-28">
+      {/* メインビジュアル（FV）セクション */}
+      <section className="relative h-[600px] bg-gradient-to-br from-orange-200 via-yellow-100 to-orange-300 overflow-visible -mt-[90px] pt-[90px]">
+        <div className="container h-full flex items-center justify-center relative py-8">
+          {/* メインコンテンツエリア - 中央配置 */}
+          <div className="relative w-full max-w-6xl mx-auto">
+            {/* 左側: メイン画像エリア */}
+            <div className="w-full max-w-[896px] h-[300px] md:h-[400px] lg:h-[506px] relative mx-auto lg:mx-0 transform translate-y-4">
+              <div className="w-full h-full bg-gradient-to-br from-orange-400 via-yellow-200 to-orange-300 rounded-2xl shadow-2xl overflow-hidden relative">
+                {/* インテリア画像のプレースホルダー */}
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-300 to-yellow-100">
+                  {/* 椅子のシルエット表現 */}
+                  <div className="absolute top-1/4 left-1/4 w-20 h-28 md:w-32 md:h-40 bg-blue-400 rounded-t-full opacity-80 transform rotate-12"></div>
+                  <div className="absolute top-1/3 right-1/3 w-16 h-24 md:w-24 md:h-32 bg-gray-800 rounded-t-full opacity-70 transform -rotate-6"></div>
+                  {/* テーブルのシルエット */}
+                  <div className="absolute bottom-1/3 left-1/2 transform -translate-x-1/2 w-16 h-16 md:w-24 md:h-24 bg-amber-800 rounded-full opacity-60"></div>
+                  {/* 装飾的な影 */}
+                  <div className="absolute bottom-1/4 left-1/4 w-28 h-6 md:w-40 md:h-8 bg-black opacity-20 rounded-full blur-sm transform rotate-12"></div>
+                  <div className="absolute bottom-1/3 right-1/4 w-24 h-4 md:w-32 md:h-6 bg-black opacity-15 rounded-full blur-sm"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* 右上: 情報カード - 画像に重なるように配置 */}
+            <div className="absolute top-4 lg:top-8 right-4 lg:-right-8 w-80 max-w-sm z-10 transform translate-y-2">
+              <div className="bg-white rounded-2xl p-6 shadow-lg relative">
+                {/* デザインタグ */}
+                <div className="absolute -top-3 left-6 bg-black text-white px-3 py-1 rounded-full text-sm font-medium">
+                  デザイン
+                </div>
+                
+                <div className="pt-4">
+                  <div className="text-4xl font-bold text-gray-900 mb-1">08</div>
+                  <div className="text-sm text-gray-600 mb-4">2024.02</div>
+                  <h2 className="text-xl font-bold text-gray-900 leading-tight">
+                    インテリア選びの基準
+                  </h2>
+                </div>
+              </div>
+            </div>
+
+            {/* 右下: アクションボタン */}
+            <div className="absolute bottom-4 lg:bottom-8 right-4 lg:-right-8 z-10 transform translate-y-12 lg:translate-y-16">
+              <Button 
+                variant="default" 
+                className="bg-black text-white hover:bg-gray-800 rounded-full text-base py-[15px] !px-[25px] h-auto font-medium flex items-center gap-2 shadow-lg"
+              >
+                記事を見る
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* 装飾的な要素 */}
+        <div className="absolute bottom-8 right-8 w-4 h-4 bg-black rounded-full opacity-60"></div>
+      </section>
+
+      {/* ピックアップセクション */}
+      <section className="pt-[80px] pb-[40px]" style={{ backgroundColor: '#F9F7F6' }}>
         <div className="container">
-          <div className="hero-content flex flex-col items-center justify-center text-center px-4 md:px-8">
-            <div className="max-w-5xl mx-auto space-y-8 md:space-y-10">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
-                お客様のビジネスを
-                <br />
-                成功に導くパートナー
-              </h1>
-              <p className="hero-text text-lg md:text-xl lg:text-2xl opacity-90 leading-relaxed max-w-4xl mx-auto px-4">
-                最高品質のサービスで、あなたの事業の成長をサポートします
-              </p>
-              <div className="button-container flex flex-col sm:flex-row gap-5 md:gap-7 justify-center items-center pt-4 md:pt-6">
-                <Link href="/contact">
-                  <Button size="lg" variant="secondary" className="text-base px-9 py-3.5 md:px-11 md:py-4.5 min-w-[190px] font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
-                    お問い合わせ
-                  </Button>
-                </Link>
-                <Link href="/downloads">
-                  <Button size="lg" variant="outline" className="text-base px-9 py-3.5 md:px-11 md:py-4.5 min-w-[190px] font-semibold border-white text-white bg-white/20 hover:bg-white hover:text-blue-600 shadow-lg hover:shadow-xl transition-all duration-300">
-                    資料ダウンロード
-                  </Button>
-                </Link>
+          <div className="flex flex-col lg:flex-row">
+            {/* 左カラム: ピックアップタイトル */}
+            <div className="w-full lg:w-[110px] mb-8 lg:mb-0 lg:mr-[40px]">
+              <div className="text-left">
+                <h2 className="text-lg font-bold text-gray-900 mb-1 mt-0">ピックアップ</h2>
+                <p className="text-sm text-gray-600">Pickup</p>
+              </div>
+            </div>
+
+            {/* 右カラム: 画像付きリスト */}
+            <div className="flex-1">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {/* アイテム1: 色と形のバランスで調和を保つ */}
+                <div className="py-[10px] pl-[10px] pr-[40px] rounded-lg transition-all duration-200 border border-transparent hover:bg-white hover:border-gray-300 cursor-pointer">
+                  <div className="flex items-center gap-3">
+                    <div className="w-[70px] h-[40px] bg-gradient-to-br from-gray-200 to-gray-300 rounded flex-shrink-0 overflow-hidden">
+                      {/* プレースホルダー画像 */}
+                      <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                        <div className="w-6 h-6 bg-blue-400 rounded"></div>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-gray-900 leading-relaxed m-0">色と形のバランスで調和を保つ</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* アイテム2: 自然と未来を大切にする */}
+                <div className="py-[10px] pl-[10px] pr-[40px] rounded-lg transition-all duration-200 border border-transparent hover:bg-white hover:border-gray-300 cursor-pointer">
+                  <div className="flex items-center gap-3">
+                    <div className="w-[70px] h-[40px] bg-gradient-to-br from-gray-200 to-gray-300 rounded flex-shrink-0 overflow-hidden">
+                      {/* プレースホルダー画像 */}
+                      <div className="w-full h-full bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                        <div className="w-6 h-6 bg-green-400 rounded-full"></div>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-gray-900 leading-relaxed m-0">自然と未来を大切にする</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* アイテム3: 美しさと実用性を兼ね備える */}
+                <div className="py-[10px] pl-[10px] pr-[40px] rounded-lg transition-all duration-200 border border-transparent hover:bg-white hover:border-gray-300 cursor-pointer">
+                  <div className="flex items-center gap-3">
+                    <div className="w-[70px] h-[40px] bg-gradient-to-br from-gray-200 to-gray-300 rounded flex-shrink-0 overflow-hidden">
+                      {/* プレースホルダー画像 */}
+                      <div className="w-full h-full bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
+                        <div className="w-6 h-6 bg-purple-400 rounded-lg"></div>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-gray-900 leading-relaxed m-0">美しさと実用性を兼ね備える</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* アイテム4: インテリア選びの基準 */}
+                <div className="py-[10px] pl-[10px] pr-[40px] rounded-lg transition-all duration-200 border border-transparent hover:bg-white hover:border-gray-300 cursor-pointer">
+                  <div className="flex items-center gap-3">
+                    <div className="w-[70px] h-[40px] bg-gradient-to-br from-gray-200 to-gray-300 rounded flex-shrink-0 overflow-hidden">
+                      {/* プレースホルダー画像 */}
+                      <div className="w-full h-full bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
+                        <div className="w-6 h-6 bg-orange-400 rounded-full"></div>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-gray-900 leading-relaxed m-0">インテリア選びの基準</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3カラム記事セクション */}
+      <section className="pt-[40px] pb-[120px]" style={{ backgroundColor: '#F9F7F6' }}>
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-[110px_1fr_300px] gap-[60px]">
+            {/* 左カラム: タグ */}
+            <div className="border-t border-black pt-6">
+              <div className="mb-[40px]">
+                <h2 className="text-lg font-bold text-gray-900 mb-1 m-0">タグ</h2>
+                <p className="text-sm text-gray-600">Tags</p>
+              </div>
+              
+              {/* タグ3列グリッド */}
+              <div className="grid grid-cols-3 gap-2">
+                <div className="text-base font-medium text-gray-900 py-[8px] px-[5px]" style={{ writingMode: 'vertical-rl' }}>
+                  ソファ
+                </div>
+                <div className="text-base font-medium text-gray-900 py-[8px] px-[5px]" style={{ writingMode: 'vertical-rl' }}>
+                  チェア
+                </div>
+                <div className="text-base font-medium text-gray-900 py-[8px] px-[5px]" style={{ writingMode: 'vertical-rl' }}>
+                  テーブル
+                </div>
+                <div className="text-base font-medium text-gray-900 py-[8px] px-[5px]" style={{ writingMode: 'vertical-rl' }}>
+                  ベッド
+                </div>
+                <div className="text-base font-medium text-gray-900 py-[8px] px-[5px]" style={{ writingMode: 'vertical-rl' }}>
+                  デスク
+                </div>
+                <div className="text-base font-medium text-gray-900 py-[8px] px-[5px]" style={{ writingMode: 'vertical-rl' }}>
+                  屋外家具
+                </div>
+                <div className="text-base font-medium text-gray-900 py-[8px] px-[5px]" style={{ writingMode: 'vertical-rl' }}>
+                  スツール
+                </div>
+                <div className="text-base font-medium text-gray-900 py-[8px] px-[5px]" style={{ writingMode: 'vertical-rl' }}>
+                  子供用家具
+                </div>
+              </div>
+            </div>
+
+            {/* 中央カラム: 最新記事 */}
+            <div className="border-t border-black pt-6">
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-baseline gap-3">
+                  <h2 className="text-lg font-bold text-gray-900 m-0">最新の記事</h2>
+                  <p className="text-sm text-gray-600">Newest</p>
+                </div>
+                <div className="text-sm text-gray-600">
+                  すべての記事 →
+                </div>
+              </div>
+              
+              {/* 記事グリッド */}
+              <div className="grid grid-cols-2 gap-6">
+                {/* 記事カード1: デザイン - インテリア選びの基準 */}
+                <div className="relative h-[236px] rounded-2xl overflow-hidden">
+                  {/* 背景画像エリア */}
+                  <div className="absolute inset-0 ml-[100px] bg-gradient-to-br from-orange-400 via-yellow-200 to-orange-300 rounded-2xl">
+                    {/* インテリア画像のプレースホルダー */}
+                    <div className="w-full h-full bg-gradient-to-br from-orange-300 to-yellow-100 relative rounded-2xl">
+                      <div className="absolute top-1/4 left-1/4 w-12 h-16 bg-blue-400 rounded-t-full opacity-80 transform rotate-12"></div>
+                      <div className="absolute top-1/3 right-1/3 w-10 h-14 bg-gray-800 rounded-t-full opacity-70 transform -rotate-6"></div>
+                      <div className="absolute bottom-1/3 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-amber-800 rounded-full opacity-60"></div>
+                    </div>
+                  </div>
+                  
+                  {/* 左上: 数字と日付 */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <div className="text-[54px] font-bold text-gray-900 leading-none">08</div>
+                    <div className="text-base text-gray-600">2024.02</div>
+                  </div>
+                  
+                  {/* タグ */}
+                  <div className="absolute bottom-[72px] left-[80px] z-10 transform translate-y-2">
+                    <div className="bg-black text-white px-3 py-1 rounded-full text-sm font-medium">
+                      デザイン
+                    </div>
+                  </div>
+                  
+                  {/* タイトル */}
+                  <div className="absolute bottom-4 left-[80px] z-10">
+                    <div className="bg-white rounded-2xl p-4 shadow-lg">
+                      <h3 className="text-base font-bold text-gray-900 leading-tight m-0">
+                        インテリア選びの基準
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 記事カード2: カルチャー - 予算内で理想の空間を実現する */}
+                <div className="relative h-[236px] rounded-2xl overflow-hidden">
+                  {/* 背景画像エリア */}
+                  <div className="absolute inset-0 ml-[100px] bg-gray-100 rounded-2xl">
+                    {/* カルチャー画像のプレースホルダー */}
+                    <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 relative rounded-2xl">
+                      <div className="absolute top-1/4 left-1/3 w-8 h-12 bg-gray-600 rounded opacity-70"></div>
+                      <div className="absolute top-1/2 right-1/4 w-6 h-8 bg-gray-800 rounded opacity-60"></div>
+                      <div className="absolute bottom-1/3 left-1/2 w-10 h-6 bg-gray-700 rounded opacity-50"></div>
+                    </div>
+                  </div>
+                  
+                  {/* 左上: 数字と日付 */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <div className="text-[54px] font-bold text-gray-900 leading-none">08</div>
+                    <div className="text-base text-gray-600">2024.02</div>
+                  </div>
+                  
+                  {/* タグ */}
+                  <div className="absolute bottom-[72px] left-[80px] z-10 transform translate-y-2">
+                    <div className="bg-black text-white px-3 py-1 rounded-full text-sm font-medium">
+                      カルチャー
+                    </div>
+                  </div>
+                  
+                  {/* タイトル */}
+                  <div className="absolute bottom-4 left-[80px] z-10">
+                    <div className="bg-white rounded-2xl p-4 shadow-lg">
+                      <h3 className="text-base font-bold text-gray-900 leading-tight m-0">
+                        予算内で理想の空間を実現する
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 記事カード3: オフィス - 予算内で優雅な空間を */}
+                <div className="relative h-[236px] rounded-2xl overflow-hidden">
+                  {/* 背景画像エリア */}
+                  <div className="absolute inset-0 ml-[100px] bg-gray-50 rounded-2xl">
+                    {/* オフィス画像のプレースホルダー */}
+                    <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 relative rounded-2xl">
+                      <div className="absolute top-1/4 left-1/4 w-16 h-10 bg-orange-400 rounded opacity-70"></div>
+                      <div className="absolute top-1/2 right-1/3 w-12 h-8 bg-white rounded opacity-80"></div>
+                      <div className="absolute bottom-1/4 left-1/2 w-8 h-6 bg-gray-600 rounded opacity-60"></div>
+                    </div>
+                  </div>
+                  
+                  {/* 左上: 数字と日付 */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <div className="text-[54px] font-bold text-gray-900 leading-none">08</div>
+                    <div className="text-base text-gray-600">2024.02</div>
+                  </div>
+                  
+                  {/* タグ */}
+                  <div className="absolute bottom-[72px] left-[80px] z-10 transform translate-y-2">
+                    <div className="bg-black text-white px-3 py-1 rounded-full text-sm font-medium">
+                      オフィス
+                    </div>
+                  </div>
+                  
+                  {/* タイトル */}
+                  <div className="absolute bottom-4 left-[80px] z-10">
+                    <div className="bg-white rounded-2xl p-4 shadow-lg">
+                      <h3 className="text-base font-bold text-gray-900 leading-tight m-0">
+                        予算内で優雅な空間を
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 記事カード4: インテリア - 好みに合わせて個性を表現する */}
+                <div className="relative h-[236px] rounded-2xl overflow-hidden">
+                  {/* 背景画像エリア */}
+                  <div className="absolute inset-0 ml-[100px] bg-gray-800 rounded-2xl">
+                    {/* インテリア画像のプレースホルダー */}
+                    <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 relative rounded-2xl">
+                      <div className="absolute top-1/4 left-1/3 w-10 h-8 bg-gray-500 rounded opacity-70"></div>
+                      <div className="absolute top-1/2 right-1/4 w-8 h-10 bg-gray-400 rounded opacity-60"></div>
+                      <div className="absolute bottom-1/3 left-1/2 w-12 h-6 bg-gray-600 rounded opacity-50"></div>
+                    </div>
+                  </div>
+                  
+                  {/* 左上: 数字と日付 */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <div className="text-[54px] font-bold text-gray-900 leading-none">08</div>
+                    <div className="text-base text-gray-600">2024.02</div>
+                  </div>
+                  
+                  {/* タグ */}
+                  <div className="absolute bottom-[72px] left-[80px] z-10 transform translate-y-2">
+                    <div className="bg-black text-white px-3 py-1 rounded-full text-sm font-medium">
+                      インテリア
+                    </div>
+                  </div>
+                  
+                  {/* タイトル */}
+                  <div className="absolute bottom-4 left-[80px] z-10">
+                    <div className="bg-white rounded-2xl p-4 shadow-lg">
+                      <h3 className="text-base font-bold text-gray-900 leading-tight m-0">
+                        好みに合わせて個性を表現する
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 記事カード5: ライフスタイル - 美しさと実用性を兼ね備える */}
+                <div className="relative h-[236px] rounded-2xl overflow-hidden">
+                  {/* 背景画像エリア */}
+                  <div className="absolute inset-0 ml-[100px] bg-green-600 rounded-2xl">
+                    {/* ライフスタイル画像のプレースホルダー */}
+                    <div className="w-full h-full bg-gradient-to-br from-green-500 to-green-700 relative rounded-2xl">
+                      <div className="absolute top-1/4 left-1/4 w-8 h-12 bg-orange-400 rounded opacity-80"></div>
+                      <div className="absolute top-1/2 right-1/3 w-10 h-8 bg-white rounded opacity-70"></div>
+                      <div className="absolute bottom-1/4 left-1/2 w-6 h-10 bg-green-300 rounded opacity-60"></div>
+                    </div>
+                  </div>
+                  
+                  {/* 左上: 数字と日付 */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <div className="text-[54px] font-bold text-gray-900 leading-none">08</div>
+                    <div className="text-base text-gray-600">2024.02</div>
+                  </div>
+                  
+                  {/* タグ */}
+                  <div className="absolute bottom-[72px] left-[80px] z-10 transform translate-y-2">
+                    <div className="bg-black text-white px-3 py-1 rounded-full text-sm font-medium">
+                      ライフスタイル
+                    </div>
+                  </div>
+                  
+                  {/* タイトル */}
+                  <div className="absolute bottom-4 left-[80px] z-10">
+                    <div className="bg-white rounded-2xl p-4 shadow-lg">
+                      <h3 className="text-base font-bold text-gray-900 leading-tight m-0">
+                        美しさと実用性を兼ね備える
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 記事カード6: ライフスタイル - 色と形のバランスで調和を保つ */}
+                <div className="relative h-[236px] rounded-2xl overflow-hidden">
+                  {/* 背景画像エリア */}
+                  <div className="absolute inset-0 ml-[100px] bg-gray-300 rounded-2xl">
+                    {/* ライフスタイル画像のプレースホルダー */}
+                    <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-400 relative rounded-2xl">
+                      <div className="absolute top-1/3 left-1/3 w-12 h-8 bg-gray-800 rounded opacity-70"></div>
+                      <div className="absolute top-1/2 right-1/4 w-8 h-10 bg-gray-600 rounded opacity-60"></div>
+                      <div className="absolute bottom-1/3 left-1/2 w-10 h-6 bg-gray-700 rounded opacity-50"></div>
+                    </div>
+                  </div>
+                  
+                  {/* 左上: 数字と日付 */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <div className="text-[54px] font-bold text-gray-900 leading-none">10</div>
+                    <div className="text-base text-gray-600">2024.01</div>
+                  </div>
+                  
+                  {/* タグ */}
+                  <div className="absolute bottom-[72px] left-[80px] z-10 transform translate-y-2">
+                    <div className="bg-black text-white px-3 py-1 rounded-full text-sm font-medium">
+                      ライフスタイル
+                    </div>
+                  </div>
+                  
+                  {/* タイトル */}
+                  <div className="absolute bottom-4 left-[80px] z-10">
+                    <div className="bg-white rounded-2xl p-4 shadow-lg">
+                      <h3 className="text-base font-bold text-gray-900 leading-tight m-0">
+                        色と形のバランスで調和を保つ
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 右カラム: 人気の記事ランキング */}
+            <div>
+              <div className="mb-8">
+                <h2 className="text-lg font-bold text-gray-900">人気の記事</h2>
+                <p className="text-sm text-gray-600">Ranking</p>
+              </div>
+              
+              {/* ランキングリスト - 仮のプレースホルダー */}
+              <div className="space-y-4">
+                <div className="bg-gray-200 h-20 rounded-lg"></div>
+                <div className="bg-gray-200 h-20 rounded-lg"></div>
+                <div className="bg-gray-200 h-20 rounded-lg"></div>
+                <div className="bg-gray-200 h-20 rounded-lg"></div>
+                <div className="bg-gray-200 h-20 rounded-lg"></div>
               </div>
             </div>
           </div>
